@@ -1,100 +1,79 @@
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
-    <title>仿腾讯开发平台网页登录模板html下载</title>
-
-    <link href="/static/css/demo.css" rel="stylesheet" media="all" />
-
-    <!--[if IE]>
-    <style type="text/css">
-        li.remove_frame a {
-            padding-top: 5px;
-            background-position: 0px -3px;
-        }
-    </style>
-    <![endif]-->
-
-    <script type="text/javascript" src="/static/js/jquery.min.js"></script>
-    <script type="text/javascript" src="/static/js/jquery.qrcode.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            function fixHeight() {
-                var headerHeight = $("#switcher").height();
-                $("#iframe").attr("height", $(window).height()-54+ "px");
-            }
-            $(window).resize(function () {
-                fixHeight();
-            }).resize();
-
-            $('.icon-monitor').addClass('active');
-
-            $(".icon-mobile-3").click(function () {
-                $("#by").css("overflow-y", "auto");
-                $('#iframe-wrap').removeClass().addClass('mobile-width-3');
-                $('.icon-tablet,.icon-mobile-1,.icon-monitor,.icon-mobile-2,.icon-mobile-3').removeClass('active');
-                $(this).addClass('active');
-                return false;
-            });
-
-            $(".icon-mobile-2").click(function () {
-                $("#by").css("overflow-y", "auto");
-                $('#iframe-wrap').removeClass().addClass('mobile-width-2');
-                $('.icon-tablet,.icon-mobile-1,.icon-monitor,.icon-mobile-2,.icon-mobile-3').removeClass('active');
-                $(this).addClass('active');
-                return false;
-            });
-
-            $(".icon-mobile-1").click(function () {
-                $("#by").css("overflow-y", "auto");
-                $('#iframe-wrap').removeClass().addClass('mobile-width');
-                $('.icon-tablet,.icon-mobile,.icon-monitor,.icon-mobile-2,.icon-mobile-3').removeClass('active');
-                $(this).addClass('active');
-                return false;
-            });
-
-            $(".icon-tablet").click(function () {
-                $("#by").css("overflow-y", "auto");
-                $('#iframe-wrap').removeClass().addClass('tablet-width');
-                $('.icon-tablet,.icon-mobile-1,.icon-monitor,.icon-mobile-2,.icon-mobile-3').removeClass('active');
-                $(this).addClass('active');
-                return false;
-            });
-
-            $(".icon-monitor").click(function () {
-                $("#by").css("overflow-y", "hidden");
-                $('#iframe-wrap').removeClass().addClass('full-width');
-                $('.icon-tablet,.icon-mobile-1,.icon-monitor,.icon-mobile-2,.icon-mobile-3').removeClass('active');
-                $(this).addClass('active');
-                return false;
-            });
-        });
-    </script>
-
-    <script type="text/javascript">
-        function Responsive($a) {
-            if ($a == true) $("#Device").css("opacity", "100");
-            if ($a == false) $("#Device").css("opacity", "0");
-            $('#iframe-wrap').removeClass().addClass('full-width');
-            $('.icon-tablet,.icon-mobile-1,.icon-monitor,.icon-mobile-2,.icon-mobile-3').removeClass('active');
-            $(this).addClass('active');
-            return false;
-        };
-    </script>
-
-    <script type="text/javascript" src="/static/js/protect.js"></script>
-
+    <meta author="zrong.me 曾荣">
+    <title>登录 - 千寻 - Thousands Find</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/login/register-login.css">
 </head>
-<body id="by">
+<body>
+<div id="box"></div>
+<div class="cent-box">
+    <div class="cent-box-header">
+        <h1 class="main-title hide">千寻</h1>
+        <h2 class="sub-title">生活热爱分享 - Thousands Find</h2>
+    </div>
 
+    <div class="cont-main clearfix">
+        <div class="index-tab">
+            <div class="index-slide-nav">
+                <a href="login.html" class="active">登录</a>
+                <div class="slide-bar"></div>
+            </div>
+        </div>
 
+        <div class="login form">
+            <div class="group">
+                <div class="group-ipt email">
+                    <input type="text" name="email" id="email" class="ipt" placeholder="邮箱地址" required>
+                </div>
+                <div class="group-ipt password">
+                    <input type="password" name="password" id="password" class="ipt" placeholder="输入您的登录密码" required>
+                </div>
+            </div>
+        </div>
 
-<div id="iframe-wrap">
-    <iframe id="iframe" src="https://www.17sucai.com/preview/1064026/2018-02-05/om.rar/index.html" frameborder="0"  width="100%"></iframe>
+        <div class="button">
+            <button type="button" class="login-btn register-btn" id="button">登录</button>
+        </div>
+
+        <div class="remember clearfix">
+            <label class="remember-me"><span class="icon"><span class="zt"></span></span><input type="checkbox" name="remember-me" id="remember-me" class="remember-mecheck" checked>记住我</label>
+            <label class="forgot-password">
+                <a href="#">忘记密码？</a>
+            </label>
+        </div>
+    </div>
 </div>
 
+<div class="footer">
+    <p>千寻 - Thousands Find</p>
+    <p>Designed By ZengRong & <a href="zrong.me">zrong.me</a> 2016</p>
+</div>
 
-
+<script src='/static/js/login/particles.js' type="text/javascript"></script>
+<script src='/static/js/login/background.js' type="text/javascript"></script>
+<script src='/static/js/login/jquery.min.js' type="text/javascript"></script>
+<script src='/static/js/login/layer/layer.js' type="text/javascript"></script>
+<script src='/static/js/login/index.js' type="text/javascript"></script>
 
 </body>
 </html>
+
+<script>
+    $(function() {
+        $("#button").click(function() {
+            var email = $("#email").val()
+            var password = $("#password").val()
+            $.ajax({
+                url: "http://127.0.0.1:8080/login",
+                data: {email, password},
+                dataType: "json",
+                method: "post",
+                success: function(res) {
+                    console.log(res)
+                }
+            })
+        })
+    })
+</script>

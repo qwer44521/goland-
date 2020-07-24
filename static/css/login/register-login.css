@@ -70,7 +70,7 @@
 			width: 160px;
 			height: 74px;
 			margin: 0 auto;
-			background: url('../images/logo1.png') no-repeat;
+			background: url('../../img/logo1.png') no-repeat;
 			background-size: contain;
 		}
 		.cent-box-header .sub-title{
