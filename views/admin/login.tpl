@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
     <title>仿腾讯开发平台网页登录模板html下载</title>
 
-    <link href="static/css/demo.css" rel="stylesheet" media="all" />
+    <link href="/static/css/demo.css" rel="stylesheet" media="all" />
 
     <!--[if IE]>
     <style type="text/css">
@@ -15,8 +15,8 @@
     </style>
     <![endif]-->
 
-    <script type="text/javascript" src="static/js/jquery.min.js"></script>
-    <script type="text/javascript" src="static/js/jquery.qrcode.min.js"></script>
+    <script type="text/javascript" src="/static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/jquery.qrcode.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             function fixHeight() {
@@ -82,7 +82,7 @@
         };
     </script>
 
-    <script type="text/javascript" src="static/js/protect.js"></script>
+    <script type="text/javascript" src="/static/js/protect.js"></script>
 
 </head>
 <body id="by">
